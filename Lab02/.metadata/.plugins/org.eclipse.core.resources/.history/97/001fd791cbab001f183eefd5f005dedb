@@ -16,11 +16,9 @@ public class Aims {
 		//anOrder.addDigitalVideoDisc(dvd3);
 		
 		DigitalVideoDisc[] dvdList = {dvd1, dvd2, dvd3};
-		//anOrder.addDigitalVideoDisc(dvdList);
-		anOrder.addDigitalVideoDisc(dvd3,dvd2);
+		anOrder.addDigitalVideoDisc(dvdList);
 		
-		
-		//anOrder.removeDigitalVideoDisc(dvd2);
+		anOrder.removeDigitalVideoDisc(dvd2);
 		
 		System.out.print("Total Cost is: ");
 		System.out.println(anOrder.totalCost());
