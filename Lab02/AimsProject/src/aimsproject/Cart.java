@@ -11,7 +11,7 @@ public class Cart {
 		if (discCount < MAX_ITEM) {
 			digitalVideoDiscs.add(disc);
 			discCount++;
-			System.out.println("Disc" + disc.getTitle() + " added to cart");
+			System.out.println("Disc " + disc.getTitle() + " added to cart");
 		} else {
 			System.out.println("Cart is already full!");
 		}
@@ -24,7 +24,7 @@ public class Cart {
 		else {
 			if (digitalVideoDiscs.remove(disc)) {
 				discCount--;
-				System.out.println("Disc" + disc.getTitle() + " removed from cart");
+				System.out.println("Disc " + disc.getTitle() + " removed from cart");
 			}
 			else {
 				System.out.println("Disc not found in cart!");
