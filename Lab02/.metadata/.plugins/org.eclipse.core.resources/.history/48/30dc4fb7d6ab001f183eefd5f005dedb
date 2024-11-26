@@ -60,42 +60,4 @@ public class Cart {
 		System.out.println("Total cost: " + totalCost() + "$");
 		System.out.println("******************************************************");
 	}
-	
-	public boolean search(int id) {
-		for (DigitalVideoDisc disc : itemsOrdered) {
-			if (disc != null && disc.getId() == id) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public DigitalVideoDisc getDiscById(int id) {
-		for (DigitalVideoDisc disc : itemsOrdered) {
-			if (disc != null && disc.getId() == id) {
-				return disc;
-			}
-		}
-		return null;
-	}
-	
-	public boolean search(String title) {
-		for (DigitalVideoDisc disc : itemsOrdered) {
-			if (disc != null && disc.isMatch(title)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public DigitalVideoDisc getDiscByTitle(String title) {
-		for (DigitalVideoDisc disc : itemsOrdered) {
-			if (disc != null && disc.isMatch(title)) {
-				return disc;
-			}
-		}
-		return null;
-	}
-	
-	
 }

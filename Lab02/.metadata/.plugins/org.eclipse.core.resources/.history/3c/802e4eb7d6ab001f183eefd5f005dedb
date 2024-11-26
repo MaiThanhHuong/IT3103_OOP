@@ -91,7 +91,6 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 	}
 	
-	
 	public String toString() {
 		return "DVD{" +
 				"Title= " + title + 
@@ -102,9 +101,6 @@ public class DigitalVideoDisc {
 				"}";
 	}
 	
-	public boolean isMatch(String title) {
-		return this.title.equalsIgnoreCase(title);
-	}
 	
 	
 	
