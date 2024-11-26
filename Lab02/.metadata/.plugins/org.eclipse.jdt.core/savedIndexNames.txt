@@ -15,7 +15,6 @@ INDEX VERSION 1.134+C:\Users\Admin\oop_lab\Lab02\.metadata\.plugins\org.eclipse.
 1401107734.index
 1464182320.index
 158551806.index
-2315386619.index
 1726068343.index
 1352520941.index
 3184491376.index

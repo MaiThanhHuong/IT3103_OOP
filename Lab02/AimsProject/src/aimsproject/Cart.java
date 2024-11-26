@@ -1,50 +1,41 @@
 package aimsproject;
 
-import java.util.LinkedList;
-
 public class Cart {
 	public static final int MAX_ITEM = 20;
-	LinkedList<DigitalVideoDisc> digitalVideoDiscs = new LinkedList<>();
-	public int discCount = 0;
+	private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_ITEM];
+	private int discCount = 0;
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
 		if (discCount < MAX_ITEM) {
-			digitalVideoDiscs.add(disc);
+			itemsOrdered[discCount] = disc;
 			discCount++;
-			System.out.println("Disc " + disc.getTitle() + " added to cart");
+			System.out.println("Disc " + disc.getTitle() + " has been added.");
 		} else {
-			System.out.println("Cart is already full!");
+			System.out.println("The cart is almost full.");
 		}
 	}
 	
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		if (discCount == 0) {
-			System.out.println("Cart is empty!");
+		int check = MAX_ITEM + 1;
+		for (int i = 0; i < discCount; i++) {
+			if (itemsOrdered[i].getTitle().equals(disc.getTitle()))
+				check = i;
 		}
-		else {
-			if (digitalVideoDiscs.remove(disc)) {
-				discCount--;
-				System.out.println("Disc " + disc.getTitle() + " removed from cart");
+		if (check != MAX_ITEM + 1) {
+			for (int i = check; i < discCount; i++) {
+				itemsOrdered[i] = itemsOrdered[i + 1];
 			}
-			else {
-				System.out.println("Disc not found in cart!");
-			}
+			System.out.println("Disc " + disc.getTitle() + " has been removed.");
+			discCount--;
 		}
 	}
 	
-	public float calculateTotalCost() {
-		float total = 0f;
-		for (DigitalVideoDisc disc : digitalVideoDiscs) {
-			total += disc.getCost();
+	public float totalCost() {
+		float totalCost = 0;
+		for (int i = 0; i < discCount; i++) {
+			totalCost += itemsOrdered[i].getCost();
 		}
-		return total;
-	}
-	
-	public void cartDetails() {
-		System.out.println("DVDs in cart:");
-		for(DigitalVideoDisc disc : digitalVideoDiscs) {
-			System.out.println(disc.getTitle());
-		}
-		System.out.println("Total cost: " + calculateTotalCost());
+		
+		return totalCost;
 	}
 }
