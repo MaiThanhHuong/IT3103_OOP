@@ -4,36 +4,54 @@ import hust.soict.dsai.aims.media.Media;
 import java.util.ArrayList;
 
 public class Store {
-	private ArrayList<Media> itemsInStore; //Danh sach cAC Media trong cua hang
-	
-	public Store() {
-		itemsInStore = new ArrayList<>();
-	}
-	// Phuong thuc them Media vao cua hang
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
+
     public void addMedia(Media media) {
-        if (itemsInStore.contains(media)) {
-            System.out.println("Media already exists in the store: " + media.getTitle());
-        } else {
+        boolean existed = false;
+        for (Media item : itemsInStore) {
+            if (item.getTitle().equals(media.getTitle())) {
+                existed = true;
+                break;
+            }
+        }
+
+        if (!existed) {
             itemsInStore.add(media);
-            System.out.println("Media added: " + media.getTitle());
-        }
-    }
-
-    // Phuong thuc xoa Media khoi cua hang
-    public void removeMedia(Media media) {
-        if (itemsInStore.remove(media)) {
-            System.out.println("Media removed: " + media.getTitle());
+            System.out.println("The media has been added in Store.");
         } else {
-            System.out.println("Media not found in the store.");
+            System.out.println("The media is already in the store.");
         }
     }
 
-    // Phuong thuc in danh sach cac Media trong cua hang
-    public void printStore() {
-        System.out.println("*************** Store Inventory ***************");
-        for (int i = 0; i < itemsInStore.size(); i++) {
-            System.out.println((i + 1) + ". " + itemsInStore.get(i).toString());
+    public void removeMedia(Media media) {
+        boolean existed = false;
+        for (Media item : itemsInStore) {
+            if (item.getTitle().equals(media.getTitle())) {
+                itemsInStore.remove(item);
+                System.out.println("The media has been removed from Store.");
+                existed = true;
+                break;
+            }
         }
-        System.out.println("***********************************************");
+
+        if (!existed) {
+            System.out.println("The media is not in the store.");
+        }
+    }
+
+    public void printStore() {
+        for (Media media : itemsInStore) {
+            System.out.println(media.toString());
+        }
+    }
+
+    public Media searchByTitle(String title) {
+        for (Media media : itemsInStore) {
+            if (media.getTitle().equals(title)) {
+                return media;
+            }
+        }
+
+        return null;
     }
 }
