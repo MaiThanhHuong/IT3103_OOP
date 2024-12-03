@@ -4,8 +4,6 @@ import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.store.Store;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
